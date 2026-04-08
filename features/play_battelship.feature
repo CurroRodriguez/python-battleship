@@ -8,7 +8,7 @@ Scenario: Shot misses ship
 
     Given a shot at 4,8
     Then the response status is OK
-        And The response json at $.result is equal to "WATER"
+        And the response json at $.result is equal to "WATER"
 
 
 Scenario: Shot hits ship
