@@ -45,7 +45,6 @@ config = {
                 "arguments": [
                     "-m",
                     "pytest",
-                    "--github-report",
                     "--cov=battleship",
                     "--cov-report",
                     f"html:{OUTPUT_DIR}",
