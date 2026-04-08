@@ -14,15 +14,15 @@ game = Game()
 def create_battleship_game():
     """Create a new battleship game with the specified ships."""
     data = flask.request.get_json()
-    
+
     if not data or 'ships' not in data:
         return flask.jsonify({'error': 'Missing ships data'}), http.HTTPStatus.BAD_REQUEST
-    
+
     success, error = game.create_game(data['ships'])
-    
+
     if not success:
         return flask.jsonify({'error': error}), http.HTTPStatus.BAD_REQUEST
-    
+
     return flask.jsonify({}), http.HTTPStatus.OK
 
 
@@ -30,15 +30,15 @@ def create_battleship_game():
 def shot():
     """Process a shot at the specified coordinates."""
     data = flask.request.get_json()
-    
+
     if not data or 'x' not in data or 'y' not in data:
         return flask.jsonify({'error': 'Missing coordinates'}), http.HTTPStatus.BAD_REQUEST
-    
+
     result, error = game.process_shot(data['x'], data['y'])
-    
+
     if error:
         return flask.jsonify({'error': error}), http.HTTPStatus.BAD_REQUEST
-    
+
     return flask.jsonify({'result': result.value}), http.HTTPStatus.OK
 
 
