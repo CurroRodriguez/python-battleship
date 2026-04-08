@@ -22,7 +22,7 @@ class TestShip(unittest.TestCase):
         """Ship should accept direction as string."""
         ship = Ship(x=0, y=0, size=2, direction="H")
         self.assertEqual(ship.direction, Direction.HORIZONTAL)
-        
+
         ship_v = Ship(x=0, y=0, size=2, direction="V")
         self.assertEqual(ship_v.direction, Direction.VERTICAL)
 
@@ -30,7 +30,7 @@ class TestShip(unittest.TestCase):
         """Ship should correctly detect if it's within board bounds."""
         ship = Ship(x=0, y=0, size=3, direction=Direction.HORIZONTAL)
         self.assertTrue(ship.is_within_bounds(10))
-        
+
     def test_ship_outside_bounds_horizontal(self):
         """Horizontal ship extending past board edge should be out of bounds."""
         ship = Ship(x=8, y=1, size=4, direction=Direction.HORIZONTAL)
